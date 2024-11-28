@@ -4,13 +4,14 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import entity.User;
+import jakarta.persistence.Entity;
 import util.Jdbc;
 
 public class UserDAOlmpl implements UserDAO {
 
 	@Override
 	public List<User> findAll() {
-		String sql = "SELECT * FROM User";
+		String sql = "SELECT * FROM USERS";
 		try {
 			List<User> entities = new ArrayList<>();
 			Object[] values = {};
@@ -35,7 +36,7 @@ public class UserDAOlmpl implements UserDAO {
 
 	@Override
 	public User findById(String id) {
-		String sql = "SELECT * FROM Departments WHERE Id=?";
+		String sql = "SELECT * FROM USERS WHERE Id=?";
 		try {
 			Object[] values = { id };
 			ResultSet resultSet = Jdbc.executeQuery(sql, values);
@@ -58,21 +59,58 @@ public class UserDAOlmpl implements UserDAO {
 	}
 
 	@Override
-	public void create(User item) {
-		// TODO Auto-generated method stub
+	public void create(User entity) {
+		String sql = "INSERT INTO USERS(Id, Password, Fullname,Birthday,Gender,Mobile,Email,Role) VALUES(?, ?, ?,?, ?,?, ?,?)";
+		try {
+			Object[] values = { 
+					entity.getId(),
+					entity.getPassword(),
+					entity.getFullname(),
+					entity.getBirthday(),
+					entity.getGender(),
+					entity.getMobile(),
+					entity.getEmail(),
+					entity.getRole(),
+
+			};
+			Jdbc.executeUpdate(sql, values);
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
 		
 	}
 
 	@Override
-	public void update(User item) {
-		// TODO Auto-generated method stub
+	public void update(User entity) {
+		String sql = "UPDATE USERS SET Password=?, Fullname=?,Birthday=?, Gender=?,Mobile=?, Email=?,Role=? WHERE Id=?";
+		try {
+			Object[] values = { 
+					entity.getPassword(),
+					entity.getFullname(),
+					entity.getBirthday(),
+					entity.getGender(),
+					entity.getMobile(),
+					entity.getEmail(),
+					entity.getRole(),
+					entity.getId(),
+			};
+			Jdbc.executeUpdate(sql, values);
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
 		
 	}
 
 	@Override
 	public void deleteById(String id) {
-		// TODO Auto-generated method stub
+		String sql = "DELETE FROM USERS WHERE Id=?";
+		try {
+			Object[] values = { id };
+			Jdbc.executeUpdate(sql, values);
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		
 		
 	}
 
-}
+}}
