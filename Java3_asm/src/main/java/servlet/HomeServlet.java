@@ -24,22 +24,18 @@ import daos.*;
 @MultipartConfig()
 @WebServlet({"/home/index"})
 public class HomeServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-    News bao = new News();
-	@Override
+    private static final long serialVersionUID = 1L;
+
+    @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	NewsDAO homedao = new NewsDAOlmpl();
-    	
-    	String path = request.getServletPath();
-    	DateTimeConverter dtc = new DateConverter();
-    	dtc.setPattern("dd/MM/yy");
-    	ConvertUtils.register(dtc, Date.class);
-    	
-    	
-    	
-    	List<News> list = homedao.findAll();
-    	request.setAttribute("list", list);
-    	request.setAttribute("page", "Home.jsp");
-    	request.getRequestDispatcher("/views/layoutUser.jsp").forward(request, response);
+        NewsDAO homedao = new NewsDAOlmpl();
+        String path = request.getServletPath();
+
+
+        // Mặc định: hiển thị danh sách bài đăng
+        List<News> list = homedao.findAll();
+        request.setAttribute("list", list);
+        request.setAttribute("page", "Home.jsp");
+        request.getRequestDispatcher("/views/layoutUser.jsp").forward(request, response);
     }
 }

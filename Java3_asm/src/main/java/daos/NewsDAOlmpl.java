@@ -39,28 +39,29 @@ public class NewsDAOlmpl implements NewsDAO {
 	
 	@Override
 	public News findById(String id) {
-		String sql = "SELECT * FROM NEWS WHERE Id=?";
-		try {
-			Object[] values = { id };
-			ResultSet resultSet = Jdbc.executeQuery(sql, values);
-			if (resultSet.next()) {
-				News entity = new News();
-				entity.setId(resultSet.getString("Id"));
-				entity.setTitle(resultSet.getString("Title"));
-				entity.setContent(resultSet.getString("Content"));;
-				entity.setImage(resultSet.getString("Image"));;
-				entity.setPosteddate(resultSet.getDate("PostedDate"));;
-				entity.setAuthor(resultSet.getString("Author"));;
-				entity.setViewcount(resultSet.getInt("ViewCount"));;
-				entity.setCategoryid(resultSet.getString("CategoryId"));;
-				entity.setHome(resultSet.getBoolean("Home"));;
-				return entity;
-			}
-		} catch (Exception e) {
-			System.out.println(e.getMessage());	
-			return null;}
-		throw new RuntimeException("Not found");
+	    String sql = "SELECT * FROM NEWS WHERE Id=?";
+	    try {
+	        Object[] values = { id };
+	        ResultSet resultSet = Jdbc.executeQuery(sql, values);
+	        if (resultSet.next()) {
+	            News entity = new News();
+	            entity.setId(resultSet.getString("Id"));
+	            entity.setTitle(resultSet.getString("Title"));
+	            entity.setContent(resultSet.getString("Content"));
+	            entity.setImage(resultSet.getString("Image"));
+	            entity.setPosteddate(resultSet.getDate("PostedDate"));
+	            entity.setAuthor(resultSet.getString("Author"));
+	            entity.setViewcount(resultSet.getInt("ViewCount"));
+	            entity.setCategoryid(resultSet.getString("CategoryId"));
+	            entity.setHome(resultSet.getBoolean("Home"));
+	            return entity;
+	        }
+	    } catch (Exception e) {
+	        System.out.println(e.getMessage());
+	    }
+	    return null;  // Trả về null nếu không tìm thấy bài viết
 	}
+
 
 	@Override
 	public void create(News entity) {

@@ -102,14 +102,13 @@
                                             <li><a href="#">Category</a>
                                             	
                                                 <ul class="submenu">
-                                                	<c:forEach	var="lc" items="${listCategory}">
+                                                	<c:forEach var="lc" items="${listCate}">
                                                     <li><a value="${lc.id}" >${lc.name}</a></li>
                                                     
                                                     </c:forEach>
+                                                   
                                                 </ul>
-                                                <c:if test="${empty listCategory}">
-  												  <p>No categories available.</p>
-												</c:if>
+                                                
                                             </li>
                                         </ul>
                                     </nav>
@@ -140,9 +139,63 @@
 	<main>
     <!-- Trending Area Start -->
     <div class="trending-area fix">
-        <div class="container">
-            <jsp:include page="${papeContext.request.contextPath}/views/${page}" />
+    <div class="container">
+        <div class="d-flex">
+         	<div class="col-lg-8"> 
+         		<jsp:include page="${papeContext.request.contextPath}/views/${page}" />
+         	</div>
+          <div class="col-lg-4">
+          	<div class="section-tittle mb-40">
+				<h3></h3>
+			</div>
+			<!-- Flow Socail -->
+			<div class="single-follow mb-45">
+				<div class="single-box">
+					<div class="follow-us d-flex align-items-center">
+						<div class="follow-social">
+							<a href="#"><img src="assets/img/news/icon-fb.png" alt=""></a>
+						</div>
+						<div class="follow-count">
+							<span>fgfghgjhj</span>
+							<p>gjfjfghjgj</p>
+						</div>
+					</div>
+					<div class="follow-us d-flex align-items-center">
+						<div class="follow-social">
+							<a href="#"><img src="assets/img/news/icon-tw.png" alt=""></a>
+						</div>
+						<div class="follow-count">
+							<span>gjfjghjfghj</span>
+							<p>gjfghjghj</p>
+						</div>
+					</div>
+					<div class="follow-us d-flex align-items-center">
+						<div class="follow-social">
+							<a href="#"><img src="assets/img/news/icon-ins.png" alt=""></a>
+						</div>
+						<div class="follow-count">
+							<span></span>
+							<p></p>
+						</div>
+					</div>
+					<div class="follow-us d-flex align-items-center">
+						<div class="follow-social">
+							<a href="#"><img src="assets/img/news/icon-yo.png" alt=""></a>
+						</div>
+						<div class="follow-count">
+							<span></span>
+							<p></p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- New Poster -->
+			<div class="news-poster d-none d-lg-block">
+				<img src="assets/img/news/news_card.jpg" alt="">
+			</div>
+          </div>
             
+        </div>
         </div>
     </div>
 	</main>

@@ -44,8 +44,10 @@ public class LayoutServlet extends HttpServlet {
 		if(uri.contains("/blogdetail/show")) {
 			response.sendRedirect("/Java3_asm/blogdetail/index");
 		}
+		
 		List<Categories> listCate = catedao.findAll();
 		request.setAttribute("listCategory", listCate);
+		System.out.println(listCate);
 
 	}
 
