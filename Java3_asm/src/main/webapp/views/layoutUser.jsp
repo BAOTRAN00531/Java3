@@ -97,18 +97,19 @@
                                 <div class="main-menu d-none d-md-block">
                                     <nav>                  
                                         <ul id="navigation">    
-                                            <li><a href="index.html">Home</a></li>
-                                            <li><a href="categori.html">Category</a></li>
-                                            <li><a href="about.html">About</a></li>
-                                            <li><a href="latest_news.html">Latest News</a></li>
-                                            <li><a href="contact.html">Contact</a></li>
-                                            <li><a href="#">Pages</a>
+                                            <li><a href="/Java3_asm/home/show">Home</a></li>
+                                           
+                                            <li><a href="#">Category</a>
+                                            	
                                                 <ul class="submenu">
-                                                    <li><a href="elements.html">Element</a></li>
-                                                    <li><a href="blog.html">Blog</a></li>
-                                                    <li><a href="single-blog.html">Blog Details</a></li>
-                                                    <li><a href="details.html">Categori Details</a></li>
+                                                	<c:forEach	var="lc" items="${listCategory}">
+                                                    <li><a value="${lc.id}" >${lc.name}</a></li>
+                                                    
+                                                    </c:forEach>
                                                 </ul>
+                                                <c:if test="${empty listCategory}">
+  												  <p>No categories available.</p>
+												</c:if>
                                             </li>
                                         </ul>
                                     </nav>
@@ -136,7 +137,15 @@
        </div>
         <!-- Header End -->
     </header>
-
+	<main>
+    <!-- Trending Area Start -->
+    <div class="trending-area fix">
+        <div class="container">
+            <jsp:include page="${papeContext.request.contextPath}/views/${page}" />
+            
+        </div>
+    </div>
+	</main>
     
     
    <footer>
@@ -240,43 +249,43 @@
 	<!-- JS here -->
 	
 		<!-- All JS Custom Plugins Link Here here -->
-        <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
+        <script src="/Java3_asm/assets/js/vendor/modernizr-3.5.0.min.js"></script>
 		<!-- Jquery, Popper, Bootstrap -->
-		<script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>
-        <script src="./assets/js/popper.min.js"></script>
-        <script src="./assets/js/bootstrap.min.js"></script>
+		<script src="/Java3_asm/assets/js/vendor/jquery-1.12.4.min.js"></script>
+        <script src="/Java3_asm/assets/js/popper.min.js"></script>
+        <script src="/Java3_asm/assets/js/bootstrap.min.js"></script>
 	    <!-- Jquery Mobile Menu -->
-        <script src="./assets/js/jquery.slicknav.min.js"></script>
+        <script src="/Java3_asm/assets/js/jquery.slicknav.min.js"></script>
 
 		<!-- Jquery Slick , Owl-Carousel Plugins -->
-        <script src="./assets/js/owl.carousel.min.js"></script>
-        <script src="./assets/js/slick.min.js"></script>
+        <script src="/Java3_asm/assets/js/owl.carousel.min.js"></script>
+        <script src="/Java3_asm/assets/js/slick.min.js"></script>
         <!-- Date Picker -->
-        <script src="./assets/js/gijgo.min.js"></script>
+        <script src="/Java3_asm/assets/js/gijgo.min.js"></script>
 		<!-- One Page, Animated-HeadLin -->
-        <script src="./assets/js/wow.min.js"></script>
-		<script src="./assets/js/animated.headline.js"></script>
-        <script src="./assets/js/jquery.magnific-popup.js"></script>
+        <script src="/Java3_asm/assets/js/wow.min.js"></script>
+		<script src="/Java3_asm/assets/js/animated.headline.js"></script>
+        <script src="/Java3_asm/assets/js/jquery.magnific-popup.js"></script>
 
         <!-- Breaking New Pluging -->
-        <script src="./assets/js/jquery.ticker.js"></script>
+        <script src="/Java3_asm/assets/js/jquery.ticker.js"></script>
         <script src="./assets/js/site.js"></script>
 
 		<!-- Scrollup, nice-select, sticky -->
-        <script src="./assets/js/jquery.scrollUp.min.js"></script>
-        <script src="./assets/js/jquery.nice-select.min.js"></script>
-		<script src="./assets/js/jquery.sticky.js"></script>
+        <script src="/Java3_asm/assets/js/jquery.scrollUp.min.js"></script>
+        <script src="/Java3_asm/assets/js/jquery.nice-select.min.js"></script>
+		<script src="/Java3_asm/assets/js/jquery.sticky.js"></script>
         
         <!-- contact js -->
-        <script src="./assets/js/contact.js"></script>
-        <script src="./assets/js/jquery.form.js"></script>
-        <script src="./assets/js/jquery.validate.min.js"></script>
-        <script src="./assets/js/mail-script.js"></script>
-        <script src="./assets/js/jquery.ajaxchimp.min.js"></script>
+        <script src="/Java3_asm/assets/js/contact.js"></script>
+        <script src="/Java3_asm/assets/js/jquery.form.js"></script>
+        <script src="/Java3_asm/assets/js/jquery.validate.min.js"></script>
+        <script src="/Java3_asm/assets/js/mail-script.js"></script>
+        <script src="/Java3_asm/assets/js/jquery.ajaxchimp.min.js"></script>
         
 		<!-- Jquery Plugins, main Jquery -->	
-        <script src="./assets/js/plugins.js"></script>
-        <script src="./assets/js/main.js"></script>
+        <script src="/Java3_asm/assets/js/plugins.js"></script>
+        <script src="/Java3_asm/assets/js/main.js"></script>
         
     </body>
 </html>
