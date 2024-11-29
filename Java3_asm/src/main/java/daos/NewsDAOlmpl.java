@@ -21,7 +21,7 @@ public class NewsDAOlmpl implements NewsDAO {
 			while (resultSet.next()) {
 				News entity = new News();
 				entity.setId(resultSet.getString("Id"));
-				entity.setTitle(resultSet.getString("Title"));
+				entity.setTitle(resultSet.getString("Tittle"));
 				entity.setContent(resultSet.getString("Content"));;
 				entity.setImage(resultSet.getString("Image"));;
 				entity.setPosteddate(resultSet.getDate("PostedDate"));;
@@ -46,7 +46,7 @@ public class NewsDAOlmpl implements NewsDAO {
 			if (resultSet.next()) {
 				News entity = new News();
 				entity.setId(resultSet.getString("Id"));
-				entity.setTitle(resultSet.getString("Title"));
+				entity.setTitle(resultSet.getString("Tittle"));
 				entity.setContent(resultSet.getString("Content"));;
 				entity.setImage(resultSet.getString("Image"));;
 				entity.setPosteddate(resultSet.getDate("PostedDate"));;
@@ -64,7 +64,7 @@ public class NewsDAOlmpl implements NewsDAO {
 
 	@Override
 	public void create(News entity) {
-		String sql = "INSERT INTO NEWS(Id, Title, Content,Image,PostedDate,Author,ViewCount,CategoryId,Home) VALUES(?, ?, ?,?, ?,?, ?,?,?)";
+		String sql = "INSERT INTO NEWS(Id, Tittle, Content,Image,PostedDate,Author,ViewCount,CategoryId,Home) VALUES(?, ?, ?,?, ?,?, ?,?,?)";
 		try {
 			Object[] values = { 
 					entity.getId(),
@@ -88,7 +88,7 @@ public class NewsDAOlmpl implements NewsDAO {
 
 	@Override
 	public void update(News entity) {
-		String sql = "UPDATE NEWS SET Title=?, Content=?,Image=?, PostedDate=?,Author=?, ViewCount=?,CategoryId=?,Home=? WHERE Id=?";
+		String sql = "UPDATE NEWS SET Tittle=?, Content=?,Image=?, PostedDate=?,Author=?, ViewCount=?,CategoryId=?,Home=? WHERE Id=?";
 		try {
 			Object[] values = { 
 					
