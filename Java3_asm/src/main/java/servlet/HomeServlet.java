@@ -38,7 +38,7 @@ public class HomeServlet extends HttpServlet {
     	
     	
     	List<News> list = homedao.findAll();
-    	request.setAttribute("index", list);
+    	request.setAttribute("list", list);
     	request.setAttribute("page", "Home.jsp");
     	request.getRequestDispatcher("/views/layoutUser.jsp").forward(request, response);
     }

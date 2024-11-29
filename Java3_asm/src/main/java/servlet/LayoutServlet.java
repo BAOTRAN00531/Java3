@@ -28,13 +28,13 @@ public class LayoutServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String uri = request.getRequestURI();
 		if(uri.contains("/home/show")) {
-			response.sendRedirect("/home/index");
+			response.sendRedirect("/Java3_asm/home/index");
 		}
 		if(uri.contains("/bloglist/show")) {
-			response.sendRedirect("/bloglist/index");
+			response.sendRedirect("/Java3_asm/bloglist/index");
 		}
 		if(uri.contains("/blogdetail/show")) {
-			response.sendRedirect("/blogdetail/index");
+			response.sendRedirect("/Java3_asm/blogdetail/index");
 		}
 	}
 
