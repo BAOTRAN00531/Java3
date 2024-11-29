@@ -10,7 +10,7 @@ public class Jdbc {
 	static String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
 	static String dburl = "jdbc:sqlserver://localhost;databaseName=asm;encrypt=false";
 	static String username = "sa";
-	static String password = "123";
+	static String password = "loi12345678";
 	
 	static {
 		try { // nạp driver
