@@ -141,29 +141,8 @@
     <!-- Trending Area Start -->
     <div class="trending-area fix">
         <div class="container">
-           	<div class="col-lg-8">
-           		<jsp:include page="${papeContext.request.contextPath}/views/${page}" />
-           	</div>
-           	 <div class="col-lg-4">
-                <!-- Section Tittle -->
-             <div class="section-tittle mb-40">
-                 <h3>Most viewed blog</h3>
-                 <div class="d-flex justify-between">
-		                                <c:forEach var="d" items="${list}">
-		              <div class="col-lg-6 col-md-6">
-	                    <div class="single-what-news mb-100">
-	                       <div class="">
-	                            <img src="/Java3_asm/images/${d.image}" style="width:344px;height:370px;" >
-	                        </div>
-	                        <div class="">
-	                            <span class="color1">${d.id}</span>
-	                            <h4><a href="#">${d.title}</a></h4>
-	                       </div>
-	                    </div>
-		               </div>
-		           	</c:forEach>
-                 </div>
-             </div>
+            <jsp:include page="${papeContext.request.contextPath}/views/${page}" />
+            
         </div>
     </div>
 	</main>
