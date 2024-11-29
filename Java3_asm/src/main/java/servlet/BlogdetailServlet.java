@@ -18,12 +18,12 @@ import daos.NewsDAOlmpl;
 import entity.News;
 
 /**
- * Servlet implementation class BloglistServlet
+ * Servlet implementation class BlogdetailServlet
  */
-@WebServlet("/bloglist/index")
-public class BloglistServlet extends HttpServlet {
+@WebServlet("/blogdetail/index")
+public class BlogdetailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	protected void service (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+protected void service (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		NewsDAO homedao = new NewsDAOlmpl();
 		
@@ -36,7 +36,7 @@ public class BloglistServlet extends HttpServlet {
 		
 		List<News> list = homedao.findAll();
 		request.setAttribute("index", list);
-		request.setAttribute("page", "Bloglist.jsp");
+		request.setAttribute("page", "Blogdetail.jsp");
 		request.getRequestDispatcher("/views/layoutUser.jsp").forward(request, response);
 	}
 }
