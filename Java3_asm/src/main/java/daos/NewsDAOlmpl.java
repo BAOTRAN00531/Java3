@@ -1,7 +1,6 @@
 package daos;
 
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.sql.ResultSet;
@@ -62,28 +61,7 @@ public class NewsDAOlmpl implements NewsDAO {
 			return null;}
 		throw new RuntimeException("Not found");
 	}
-	
-	@Override
-	public void topViewed() {
-		String sql = "select title, image, viewcount from news order by viewcount desc limit 3";
-		try {
-			List<News> entities = new ArrayList<>();
-			Object[] values = {};
-			ResultSet resultSet = Jdbc.executeQuery(sql, values);
-			while (resultSet.next()) {
-				News entity = new News();
-				entity.setId(resultSet.getString("Id"));
-				entity.setTitle(resultSet.getString("Title"));
-				entity.setImage(resultSet.getString("Image"));
-				entity.setViewcount(resultSet.getInt("ViewCount"));
-				entities.add(entity);
-			}
-		} catch (Exception e) {
-			throw new RuntimeException(e);
-		}
-		throw new RuntimeException("Not found");
-	}
-	
+
 	@Override
 	public void create(News entity) {
 		String sql = "INSERT INTO NEWS(Id, Title, Content,Image,PostedDate,Author,ViewCount,CategoryId,Home) VALUES(?, ?, ?,?, ?,?, ?,?,?)";
@@ -108,16 +86,6 @@ public class NewsDAOlmpl implements NewsDAO {
 		
 	}
 
-	public int viewCount(News entity) {
-		String sql = "update news set viewcount = viewcount + 1 where id = ?";
-		try {
-			Jdbc.executeUpdate(sql, entity.getViewcount());
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return entity.getViewcount();
-	}
-	
 	@Override
 	public void update(News entity) {
 		String sql = "UPDATE NEWS SET Title=?, Content=?,Image=?, PostedDate=?,Author=?, ViewCount=?,CategoryId=?,Home=? WHERE Id=?";

@@ -96,7 +96,11 @@
                         </div>
                     <!-- End Nav Card -->
                     </div>
-                    
+                     <div class="col-lg-4">
+                <!-- Section Tittle -->
+                <div class="section-tittle mb-40">
+                    <h3></h3>
+                </div>
                 <!-- Flow Socail -->
                 <div class="single-follow mb-45">
                     <div class="single-box">

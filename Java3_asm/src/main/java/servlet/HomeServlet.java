@@ -29,19 +29,15 @@ public class HomeServlet extends HttpServlet {
 	@Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	NewsDAO homedao = new NewsDAOlmpl();
-    	CategoriesDAO catedao = new CategoriesDAOlmpl();
     	
     	String path = request.getServletPath();
     	DateTimeConverter dtc = new DateConverter();
     	dtc.setPattern("dd/MM/yy");
     	ConvertUtils.register(dtc, Date.class);
     	
+    	
+    	
     	List<News> list = homedao.findAll();
-        request.setAttribute("list", list);
-        
-        // Lấy danh sách các danh mục
-        List<Categories> listCate = catedao.findAll();
-        request.setAttribute("listCategory", listCate);
     	request.setAttribute("list", list);
     	request.setAttribute("page", "Home.jsp");
     	request.getRequestDispatcher("/views/layoutUser.jsp").forward(request, response);
