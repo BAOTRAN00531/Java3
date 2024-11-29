@@ -35,6 +35,8 @@ public class HomeServlet extends HttpServlet {
     	dtc.setPattern("dd/MM/yy");
     	ConvertUtils.register(dtc, Date.class);
     	
+    	
+    	
     	List<News> list = homedao.findAll();
     	request.setAttribute("index", list);
     	request.setAttribute("page", "Home.jsp");
