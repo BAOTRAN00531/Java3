@@ -9,11 +9,11 @@ public interface CategoriesDAO {
 		/**Truy vấn tất cả*/
 		List<Categories> findAll();
 		/**Truy vấn theo mã*/
-		News findById(String id);
+		Categories findById(Categories id);
 		/**Thêm mới*/
-		void create(News item);
+		void create(Categories item);
 		/**Cập nhật*/
-		void update(News item);
+		void update(Categories item);
 		/**Xóa theo mã*/
 		void deleteById(String id);
 }

@@ -6,7 +6,6 @@ import java.util.List;
 
 import entity.Categories;
 import entity.News;
-import entity.User;
 import util.Jdbc;
 
 public class CategoriesDAOlmpl implements CategoriesDAO{
@@ -29,48 +28,73 @@ public class CategoriesDAOlmpl implements CategoriesDAO{
 			throw new RuntimeException(e);
 		}
 	}
+	@Override
+	public Categories findById(Categories id) {
+		String sql = "SELECT * FROM CATEGORIES WHERE Id=?";
+	try {
+		Object[] values = { id };
+			ResultSet resultSet = Jdbc.executeQuery(sql, values);
+		if (resultSet.next()) {
+			Categories entity = new Categories();
+				entity.setId(resultSet.getString("Id"));
+				entity.setName(resultSet.getString("Name"));
+				return entity;
+			}
+		} catch (Exception e) {
+		System.out.println(e.getMessage());	
+			return null;}
+		throw new RuntimeException("Not found");
 
-//	@Override
-//	public Categories findById(String id) {
-//		String sql = "SELECT * FROM CATEGORIES WHERE Id=?";
-//		try {
-//			Object[] values = { id };
-//			ResultSet resultSet = Jdbc.executeQuery(sql, values);
-//			if (resultSet.next()) {
-//				Categories entity = new Categories();
-//				entity.setId(resultSet.getString("Id"));
-//				entity.setName(resultSet.getString("Name"));
-//				
-//				return entity;
-//			}
-//		} catch (Exception e) {
-//			System.out.println(e.getMessage());	
-//			return null;}
-//		throw new RuntimeException("Not found");
-//	}
+	}
+
 
 	@Override
-	public void create(News item) {
-		// TODO Auto-generated method stub
+	public void create(Categories entity) {
+		String sql = "INSERT INTO CATEGORIES(Id, Name) VALUES(?, ?)";
+		try {
+			Object[] values = { 
+					entity.getId(),
+					entity.getName(),
+
+			};
+			Jdbc.executeUpdate(sql, values);
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
 		
 	}
 
 	@Override
-	public void update(News item) {
-		// TODO Auto-generated method stub
+	public void update(Categories entity) {
+		String sql = "UPDATE CATEGORIES SET Name=? WHERE Id=?";
+		try {
+			Object[] values = { 
+					entity.getName(),
+					entity.getId(),
+			};
+			Jdbc.executeUpdate(sql, values);
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
 		
 	}
 
 	@Override
 	public void deleteById(String id) {
-		// TODO Auto-generated method stub
+		String sql = "DELETE FROM CATEGORIES WHERE Id=?";
+		try {
+			Object[] values = { id };
+			Jdbc.executeUpdate(sql, values);
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		
+		
+	}
 		
 	}
 
-	@Override
-	public News findById(String id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
+
+	
 
 }
