@@ -149,7 +149,7 @@
              <div class="section-tittle mb-40">
                  <h3>Most viewed blog</h3>
                  <div class="d-flex justify-between">
-		                                <c:forEach var="d" items="${list}">
+		            <c:forEach var="d" items="${list}">
 		              <div class="col-lg-6 col-md-6">
 	                    <div class="single-what-news mb-100">
 	                       <div class="">

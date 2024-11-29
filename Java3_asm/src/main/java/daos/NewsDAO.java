@@ -15,4 +15,8 @@ public interface NewsDAO {
 		void update(News item);
 		/**Xóa theo mã*/
 		void deleteById(String id);
+		// ghi so luot xem
+		int viewCount(News entity);
+		
+		List<News> topViewed();
 }
