@@ -25,7 +25,7 @@
         </div>
 
         <div class="post-footer">
-            <p><span>Đã xem:</span> ${news.viewcount}</p>
+            <p><strong>Đã xem:</strong> ${news.viewcount}</p>
         </div>
     </div>
 </body>
