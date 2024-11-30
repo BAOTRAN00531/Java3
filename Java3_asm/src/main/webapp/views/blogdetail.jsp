@@ -28,6 +28,5 @@
             <p><strong>Đã xem:</strong> ${news.viewcount}</p>
         </div>
     </div>
-
 </body>
 </html>
