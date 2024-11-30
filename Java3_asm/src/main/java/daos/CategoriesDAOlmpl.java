@@ -28,6 +28,7 @@ public class CategoriesDAOlmpl implements CategoriesDAO{
 			throw new RuntimeException(e);
 		}
 	}
+	
 	@Override
 	public Categories findById(Categories id) {
 		String sql = "SELECT * FROM CATEGORIES WHERE Id=?";

@@ -32,11 +32,19 @@ protected void service (HttpServletRequest request, HttpServletResponse response
 		dtc.setPattern("dd/MM/yy");
 		ConvertUtils.register(dtc, Date.class);
 		
-		
+		try {
+			
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
 		
 		List<News> list = homedao.findAll();
 		request.setAttribute("index", list);
 		request.setAttribute("page", "Blogdetail.jsp");
 		request.getRequestDispatcher("/views/layoutUser.jsp").forward(request, response);
+	
 	}
+
 }
+
+

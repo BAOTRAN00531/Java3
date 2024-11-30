@@ -24,6 +24,10 @@ public class Categories {
 	public Categories() {
 		super();
 	}
+	@Override
+    public String toString() {
+        return "Categories{id='" + id + "', name='" + name + "'}";
+    }
 	String name;
 	String id;
 }

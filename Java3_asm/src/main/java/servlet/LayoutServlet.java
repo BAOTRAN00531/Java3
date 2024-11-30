@@ -12,7 +12,8 @@ import java.util.List;
 import daos.CategoriesDAO;
 import daos.CategoriesDAOlmpl;
 import entity.Categories;
-
+import daos.*;
+import entity.*;
 
 /**
  * Servlet implementation class LayoutServlet
@@ -34,6 +35,7 @@ public class LayoutServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		CategoriesDAO catedao = new CategoriesDAOlmpl();
+		NewsDAO newsdao = new NewsDAOlmpl();
 		String uri = request.getRequestURI();
 		if(uri.contains("/home/show")) {
 			response.sendRedirect("/Java3_asm/home/index");
@@ -44,9 +46,18 @@ public class LayoutServlet extends HttpServlet {
 		if(uri.contains("/blogdetail/show")) {
 			response.sendRedirect("/Java3_asm/blogdetail/index");
 		}
+		
+		if (uri.contains("/login")) {
+            request.setAttribute("page", "/views/login.jsp");
+        }
+        if (uri.contains("/register")) {
+            request.setAttribute("page", "/views/register.jsp");
+        }
+		
 		List<Categories> listCate = catedao.findAll();
 		request.setAttribute("listCategory", listCate);
-
+		List<News> mostView = newsdao.topViewed();
+		System.out.println(mostView);
 	}
 
 	/**
